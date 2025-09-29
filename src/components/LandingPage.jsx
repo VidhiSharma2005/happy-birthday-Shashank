@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
 // Import your images
-import planeGif from "./assets/pengu-pudgy-unscreen.gif";
-import closedEnvelope from "./assets/closedenvelope.png";
-import openEnvelope from "./assets/open.png";
+import planeGif from "../assets/pengu-pudgy-unscreen.gif";
+import closedEnvelope from "../assets/closedenvelope.png";
+import openEnvelope from "../assets/open.png";
 
 // External GIFs can still be URLs
 const helloKittyGif = "https://i.pinimg.com/originals/c5/24/8e/c5248ed334ed6965c2167910024da02d.gif";
