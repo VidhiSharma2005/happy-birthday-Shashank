@@ -5,9 +5,9 @@ const helloKittyGif = "https://i.pinimg.com/originals/c5/24/8e/c5248ed334ed6965c
 const cornerGif = "https://i.pinimg.com/originals/e6/8e/0f/e68e0f918dc5dd750f4522ec1671e3c6.gif";
 
 // Import local images from src/assets
-import planeGif from "./assets/pengu-pudgy-unscreen.gif";
-import closedEnvelope from "./assets/closedenvelope.png";
-import openEnvelope from "./assets/open.png";
+import planeGif from "../assets/pengu-pudgy-unscreen.gif";
+import closedEnvelope from "../assets/closedenvelope.png";
+import openEnvelope from "../assets/open.png";
 
 export default function LandingPage({ onContinue }) {
   const [stage, setStage] = useState("hello"); // hello, plane, envelope-closed, envelope-open, letter
