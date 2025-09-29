@@ -1,15 +1,23 @@
 import { useState } from "react";
 
-// Use placeholder or your own image links
-const PLACEHOLDER = "https://via.placeholder.com/400x300?text=Memory";
+// External URLs remain as strings
+// const PLACEHOLDER = "https://via.placeholder.com/400x300?text=Memory";
+
+// Import local assets so build tools can process them
+import First from "../assets/First.png";
+import Arcade from "../assets/arcade.png";
+import GreenFlag from "../assets/GreenFlag.mp4";
+import LipstickKiss from "../assets/lipstickKiss.png";
+import DinnerDate from "../assets/DinnerDate.png";
+import Twin from "../assets/Twin.mp4";
+
 const MEMORIES = [
-  { type: "photo", src: "src/assets/First.png", title: "Our First Photo Together", note: "If this doesn't scream made for each other, I don't know what does" },
-  { type: "photo", src: "src/assets/arcade.png", title: "Arcade Date", note: "I need a rematch" },
-  { type: "video", src: "src/assets/GreenFlag.mp4", title: "Green Flag", note: "The greenest red flag I have ever seen" },
-  { type: "photo", src: "src/assets/lipstickKiss.png", title: "Lipstick Marks", note: "You look so cute with my lipstick on you 😉" },
-  { type: "photo", src: "src/assets/DinnerDate.png", title: "Dinner Date", note: "You have no idea how much I regret not kissing you that day" },
-  { type: "video", src: "src/assets/Twin.mp4", title: "Twins?", note: "Same same but different." },
-  
+  { type: "photo", src: First, title: "Our First Photo Together", note: "If this doesn't scream made for each other, I don't know what does" },
+  { type: "photo", src: Arcade, title: "Arcade Date", note: "I need a rematch" },
+  { type: "video", src: GreenFlag, title: "Green Flag", note: "The greenest red flag I have ever seen" },
+  { type: "photo", src: LipstickKiss, title: "Lipstick Marks", note: "You look so cute with my lipstick on you 😉" },
+  { type: "photo", src: DinnerDate, title: "Dinner Date", note: "You have no idea how much I regret not kissing you that day" },
+  { type: "video", src: Twin, title: "Twins?", note: "Same same but different." },
 ];
 
 const CameraIcon = ({ className }) => (

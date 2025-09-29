@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 import { useEffect } from "react";
+import banner from "../assets/banner.png";
 
 export default function FinalBanner() {
   useEffect(() => {
@@ -20,7 +21,7 @@ export default function FinalBanner() {
       >
         <h1 className="text-3xl font-bold mb-4 text-white">Happy Birthday Again!</h1>
        <img
-  src="src/assets/banner.png"
+  src={banner}
   alt="Banner"
   className="mx-auto mb-4 rounded-lg shadow w-48 h-auto"
 />

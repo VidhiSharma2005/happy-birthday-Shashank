@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 import { useEffect } from "react";
 
+// Import local image from src/assets
+import congratsImg from "../assets/Congrats.png";
+
 export default function CongratsPage({ onNext }) {
   useEffect(() => {
     confetti({ particleCount: 200, spread: 80, origin: { y: 0.6 } });
@@ -32,7 +35,7 @@ export default function CongratsPage({ onNext }) {
         {/* Placeholder image spot */}
         <div className="mt-4 mb-6">
           <img
-            src="src/assets/Congrats.png"
+            src={congratsImg}
             alt="Surprise"
             className="mx-auto rounded-lg shadow-md w-48 h-48 object-cover"
           />
@@ -48,4 +51,5 @@ export default function CongratsPage({ onNext }) {
     </div>
   );
 }
+
 
