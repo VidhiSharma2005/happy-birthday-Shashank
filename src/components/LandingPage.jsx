@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 const helloKittyGif = "https://i.pinimg.com/originals/c5/24/8e/c5248ed334ed6965c2167910024da02d.gif";
 const cornerGif = "https://i.pinimg.com/originals/e6/8e/0f/e68e0f918dc5dd750f4522ec1671e3c6.gif";
 const planeGif = "src/assets/pengu-pudgy-unscreen.gif";
-const closedEnvelope = "src/assets/closedenvelope.png";
-const openEnvelope = "src/assets/open.png";
+const closedEnvelope = "./assets/closedenvelope.png";
+const openEnvelope = "./assets/open.png";
 
 export default function LandingPage({ onContinue }) {
   const [stage, setStage] = useState("hello"); // hello, plane, envelope-closed, envelope-open, letter
