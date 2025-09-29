@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 
-// Import your images
-import planeGif from "../assets/pengu-pudgy-unscreen.gif";
-import closedEnvelope from "../assets/closedenvelope.png";
-import openEnvelope from "../assets/open.png";
-
-// External GIFs can still be URLs
+// External URLs stay as is
 const helloKittyGif = "https://i.pinimg.com/originals/c5/24/8e/c5248ed334ed6965c2167910024da02d.gif";
 const cornerGif = "https://i.pinimg.com/originals/e6/8e/0f/e68e0f918dc5dd750f4522ec1671e3c6.gif";
+
+// Import local images from src/assets
+import planeGif from "./assets/pengu-pudgy-unscreen.gif";
+import closedEnvelope from "./assets/closedenvelope.png";
+import openEnvelope from "./assets/open.png";
 
 export default function LandingPage({ onContinue }) {
   const [stage, setStage] = useState("hello"); // hello, plane, envelope-closed, envelope-open, letter
@@ -49,12 +49,13 @@ export default function LandingPage({ onContinue }) {
         <img
           src={planeGif}
           alt="Flying paper plane"
+          style={{ left: 0, top: 0, animationFillMode: "forwards" }}
           className="absolute z-30 w-[150px] h-[120px] animate-planefly pointer-events-none"
           draggable={false}
         />
       )}
 
-      {/* Closed Envelope */}
+      {/* Closed Envelope with larger top-right gif */}
       {stage === "envelope-closed" && (
         <div className="relative z-30 flex flex-col items-center">
           <img
@@ -64,7 +65,7 @@ export default function LandingPage({ onContinue }) {
             onClick={handleOpenEnvelope}
             draggable={false}
           />
-          {/* Top-right GIF */}
+          {/* Larger top-right GIF */}
           <img
             src={cornerGif}
             alt="Animated corner gif"
@@ -82,10 +83,7 @@ export default function LandingPage({ onContinue }) {
         </div>
       )}
 
-      {/* Open Envelope */}
-      {/* <img src={openEnvelope} /> can be used similarly when you implement envelope-open */}
-
-      {/* Letter Modal */}
+      {/* Letter Modal with Continue button */}
       {stage === "letter" && (
         <div
           aria-modal="true"
@@ -119,6 +117,22 @@ export default function LandingPage({ onContinue }) {
           </div>
         </div>
       )}
+
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap');
+        .font-pacifico { font-family: 'Pacifico', cursive;}
+        @keyframes planefly {
+          0%   { left: 0; top: 0; opacity: 1; }
+          80%  { left: 55vw; top: 45vh; opacity: 1; }
+          100% { left: 50vw; top: 50vh; opacity: 0; }
+        }
+        .animate-planefly { animation: planefly 2s cubic-bezier(.8,.2,.2,1) forwards;}
+        @keyframes envelopeopen {
+          0% { transform: scale(0.95) translate(-50%, -50%); opacity: 0.6; }
+          100% { transform: scale(1) translate(-50%, -50%); opacity: 1; }
+        }
+        .animate-envelopeopen { animation: envelopeopen 0.7s cubic-bezier(.7,1.1,.9,1) forwards;}
+      `}</style>
     </div>
   );
 }
