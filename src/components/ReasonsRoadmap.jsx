@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useMotionValue, animate } from "framer-motion";
 
+// Import local image correctly for deployment bundling
+import carImg from "../assets/7317982.png";
+
 const REASONS = [
   "Your smile makes me smile 😊",
   "Your voice gives me butterflies 🦋",
@@ -22,11 +25,9 @@ export default function ReasonsRoadmap({ onNext }) {
   const [points, setPoints] = useState([]);
   const [currentStop, setCurrentStop] = useState(0);
 
-  // Use MotionValue for x to animate and drag
   const x = useMotionValue(0);
   const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
 
-  // Compute points along path
   useEffect(() => {
     const computePoints = () => {
       const pathEl = pathRef.current;
@@ -47,7 +48,6 @@ export default function ReasonsRoadmap({ onNext }) {
 
       setPoints(pts);
 
-      // Set drag constraints
       if (railRef.current && wrapperRef.current) {
         const maxScroll = Math.max(0, railRef.current.scrollWidth - wrapperRef.current.clientWidth);
         setDragConstraints({ left: -maxScroll, right: 0 });
@@ -59,7 +59,6 @@ export default function ReasonsRoadmap({ onNext }) {
     return () => window.removeEventListener("resize", computePoints);
   }, []);
 
-  // Center selected stop
   const goToStop = (index) => {
     setCurrentStop(index);
     if (!points[index] || !railRef.current || !wrapperRef.current) return;
@@ -87,7 +86,6 @@ export default function ReasonsRoadmap({ onNext }) {
         Take a long drive with me — click each stop to reveal a reason I love you. Drag the road horizontally on mobile.
       </p>
 
-      {/* Road wrapper */}
       <div className="w-full max-w-5xl overflow-hidden relative" ref={wrapperRef}>
         <motion.div
           ref={railRef}
@@ -171,9 +169,9 @@ export default function ReasonsRoadmap({ onNext }) {
               ))}
           </svg>
 
-          {/* Car using local SVG */}
+          {/* Car using imported image */}
           <motion.img
-            src="src/assets/7317982.png"
+            src={carImg}
             alt="car"
             className="absolute w-14 h-10 -translate-x-1/2 -translate-y-1/2"
             style={{ left: carPos.x, top: carPos.y - 18, transformOrigin: "center" }}
@@ -187,7 +185,6 @@ export default function ReasonsRoadmap({ onNext }) {
         </motion.div>
       </div>
 
-      {/* Reason panel */}
       <div className="w-full max-w-2xl mt-6">
         <AnimatePresence exitBeforeEnter>
           <motion.div
@@ -221,7 +218,6 @@ export default function ReasonsRoadmap({ onNext }) {
     </div>
   );
 }
-
 
 // import React, { useEffect, useRef, useState } from "react";
 // import { motion, AnimatePresence, useMotionValue, animate } from "framer-motion";
