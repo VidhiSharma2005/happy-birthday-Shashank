@@ -52,7 +52,7 @@ export default function HeartsGame({ onComplete }) {
             Math.abs(h.x - kittenX) < 5 &&
             !caughtHearts.includes(h.id)
           ) {
-            setScore((s) => s + 1);
+            setScore((s) => s + 2);
             setCaughtHearts((prevIds) => [...prevIds, h.id]);
 
             // 🎊 Confetti burst at heart position
