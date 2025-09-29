@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 
+// External URLs stay as is
 const helloKittyGif = "https://i.pinimg.com/originals/c5/24/8e/c5248ed334ed6965c2167910024da02d.gif";
 const cornerGif = "https://i.pinimg.com/originals/e6/8e/0f/e68e0f918dc5dd750f4522ec1671e3c6.gif";
-const planeGif = "src/assets/pengu-pudgy-unscreen.gif";
-const closedEnvelope = "src/assets/closedenvelope.png";
-const openEnvelope = "src/assets/open.png";
+
+// Import local images from src/assets
+import planeGif from "../assets/pengu-pudgy-unscreen.gif";
+import closedEnvelope from "../assets/closedenvelope.png";
+import openEnvelope from "../assets/open.png";
 
 export default function LandingPage({ onContinue }) {
   const [stage, setStage] = useState("hello"); // hello, plane, envelope-closed, envelope-open, letter
@@ -17,9 +20,8 @@ export default function LandingPage({ onContinue }) {
   }, []);
 
   const handleOpenEnvelope = () => {
-  setStage("letter");
-};
-
+    setStage("letter");
+  };
 
   return (
     <div className="relative min-h-screen bg-white flex flex-col items-center justify-center overflow-hidden font-pacifico select-none">
@@ -81,18 +83,6 @@ export default function LandingPage({ onContinue }) {
         </div>
       )}
 
-      {/* Envelope open */}
-      {/* {stage === "envelope-open" && (
-        <div className="absolute top-1/2 left-1/2 z-40 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center animate-envelopeopen">
-          <img
-            src={openEnvelope}
-            alt="Open envelope"
-            className="w-[410px] h-[400px] md:w-[530px] md:h-[500px] shadow-2xl border-4 border-pink-400 rounded-3xl"
-            draggable={false}
-          />
-        </div>
-      )} */}
-
       {/* Letter Modal with Continue button */}
       {stage === "letter" && (
         <div
@@ -146,6 +136,7 @@ export default function LandingPage({ onContinue }) {
     </div>
   );
 }
+
 // import { motion } from "framer-motion";
 
 // export default function LandingPage({ onStart }) {
